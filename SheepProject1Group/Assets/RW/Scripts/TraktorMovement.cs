@@ -2,17 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TractorState { Move, Stop };
+
 public class TraktorMovement : MonoBehaviour
 {
+    
     [SerializeField] private float speed;
-    private float direction;
-    private bool isMove;
+    [SerializeField] private GameObject seno;
+    [SerializeField] private float fireRate;
+    private float nextFire;
 
+    private Transform spawnPoint;
+    [SerializeField] private Transform senoContainer;
+
+    private float direction;
+    private TractorState tractorState = TractorState.Stop;
+
+
+    private void Awake()
+    {
+        spawnPoint = transform.GetChild(1);
+    }
 
 
     void Update()
     {
-        if (isMove == true)
+        MoveTractor();
+        nextFire -= Time.deltaTime;
+    }
+
+    public void MoveRight()
+    {
+        direction = 1f;
+        tractorState = TractorState.Move;
+    }
+    public void MoveLeft()
+    {
+        direction = -1f;
+        tractorState = TractorState.Move;
+    }
+    public void StopMove()
+    {
+        tractorState = TractorState.Stop;
+    }
+    public void Fire()
+    {
+        if (nextFire < 0)
+        {
+            GameObject seno = Instantiate(this.seno, spawnPoint.position, this.seno.transform.rotation);
+            seno.transform.SetParent(senoContainer);
+            Destroy(seno, 10f);
+            nextFire = fireRate;
+        }
+    }
+
+    private void MoveTractor()
+    {
+        if (tractorState == TractorState.Move)
         {
             if (((transform.position.x >= -22f) && (direction == -1f)) || ((transform.position.x <= 22f) && (direction == 1f)))
             {
@@ -20,22 +66,5 @@ public class TraktorMovement : MonoBehaviour
             }
         }
     }
-
-
-    public void MoveRight()
-    {
-        direction = 1f;
-        isMove = true;
-    }
-    public void MoveLeft()
-    {
-        direction = -1f;
-        isMove = true;
-    }
-    public void StopMove()
-    {
-        isMove = false;
-    }
-
 
 }

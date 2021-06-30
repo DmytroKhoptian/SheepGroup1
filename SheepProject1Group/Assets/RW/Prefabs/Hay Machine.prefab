@@ -108,6 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3a8665a36dbf547b3e1aeca25b5db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
+  seno: {fileID: 8980075848866696673, guid: e25a1cccd43cc774a928c2d7e3a55bbd, type: 3}
+  fireRate: 0
 --- !u!1001 &1980520476685283717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,6 +118,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2709791935418197139}
     m_Modifications:
+    - target: {fileID: 2942092869753855845, guid: 7928344c9a39fbd4eb4c957288e1140b, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3216923365951500492, guid: 7928344c9a39fbd4eb4c957288e1140b, type: 3}
       propertyPath: m_Name
       value: Smoke Particles
@@ -177,6 +184,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2709791935418197139}
     m_Modifications:
+    - target: {fileID: 2942092869753855845, guid: 7928344c9a39fbd4eb4c957288e1140b, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3216923365951500492, guid: 7928344c9a39fbd4eb4c957288e1140b, type: 3}
       propertyPath: m_Name
       value: Smoke Particles
