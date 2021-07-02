@@ -28,7 +28,7 @@ public class TraktorMovement : MonoBehaviour
     void Update()
     {
         MoveTractor();
-        nextFire -= Time.deltaTime;
+       // nextFire -= Time.deltaTime;
     }
 
     public void MoveRight()
@@ -47,12 +47,12 @@ public class TraktorMovement : MonoBehaviour
     }
     public void Fire()
     {
-        if (nextFire < 0)
+        if (Time.time > nextFire)
         {
+            nextFire = Time.time + fireRate;
             GameObject seno = Instantiate(this.seno, spawnPoint.position, this.seno.transform.rotation);
             seno.transform.SetParent(senoContainer);
-            Destroy(seno, 10f);
-            nextFire = fireRate;
+            Destroy(seno, 10f);     
         }
     }
 
