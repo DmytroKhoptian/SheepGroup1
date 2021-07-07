@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 595bcf17d82ee1847b484730b57dc675, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 57c51567accdf8f4aa72c7f208f2e9a6, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -1574,6 +1574,10 @@ PrefabInstance:
     - target: {fileID: 3601117840724272794, guid: da49eeb576b397f4c8489f462969d365, type: 3}
       propertyPath: m_Name
       value: Sheep
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601117840724272794, guid: da49eeb576b397f4c8489f462969d365, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3601117840724638394, guid: da49eeb576b397f4c8489f462969d365, type: 3}
       propertyPath: m_RootOrder

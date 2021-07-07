@@ -26,8 +26,8 @@ public class MyEnums : MonoBehaviour
         studentsAge = StudentsAge.AlexR; // назначить состояние
 
         int a =  (int)studentsAge; // получить значение состояния
-        print(studentsAge);
-        print(a);
+        //print(studentsAge);
+        //print(a);
         if(studentsAge == StudentsAge.Veron) // сравнить состояние
         {
 

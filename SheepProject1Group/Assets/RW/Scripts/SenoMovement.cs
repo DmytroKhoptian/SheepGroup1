@@ -6,7 +6,6 @@ public class SenoMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private Vector3 diraction;
-  
 
     private void FixedUpdate()
     {
