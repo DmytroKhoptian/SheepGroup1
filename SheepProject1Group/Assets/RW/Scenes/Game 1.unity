@@ -1161,6 +1161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed94881dfa0bfe44996c09dd666c9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 11400000, guid: 0672b51c0f1b7524b8b83d9a83b255fd, type: 2}
 --- !u!1 &1473070086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,10 +1576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sheep
       objectReference: {fileID: 0}
-    - target: {fileID: 3601117840724272794, guid: da49eeb576b397f4c8489f462969d365, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3601117840724638394, guid: da49eeb576b397f4c8489f462969d365, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1834,10 +1831,6 @@ PrefabInstance:
     - target: {fileID: 6020313712292669828, guid: c91d458c12526534eb19d65378204353, type: 3}
       propertyPath: m_Name
       value: Hay Machine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084214712307259638, guid: c91d458c12526534eb19d65378204353, type: 3}
-      propertyPath: fireRate
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7084214712307259638, guid: c91d458c12526534eb19d65378204353, type: 3}
       propertyPath: senoContainer

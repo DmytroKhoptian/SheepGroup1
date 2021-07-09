@@ -110,7 +110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   seno: {fileID: 8980075848866696673, guid: e25a1cccd43cc774a928c2d7e3a55bbd, type: 3}
-  fireRate: 0
+  fireRate: 0.5
+  senoContainer: {fileID: 0}
+  soundManager: {fileID: 11400000, guid: 0672b51c0f1b7524b8b83d9a83b255fd, type: 2}
 --- !u!1001 &1980520476685283717
 PrefabInstance:
   m_ObjectHideFlags: 0

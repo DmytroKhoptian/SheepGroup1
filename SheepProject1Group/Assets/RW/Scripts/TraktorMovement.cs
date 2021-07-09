@@ -17,7 +17,7 @@ public class TraktorMovement : MonoBehaviour
 
     private float direction;
     private TractorState tractorState = TractorState.Stop;
-
+    [SerializeField] private SoundManager soundManager;
 
     private void Awake()
     {
@@ -49,6 +49,7 @@ public class TraktorMovement : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
+            soundManager.PlayShootClip();
             nextFire = Time.time + fireRate;
             GameObject seno = Instantiate(this.seno, spawnPoint.position, this.seno.transform.rotation);
             seno.transform.SetParent(senoContainer);

@@ -143,3 +143,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 500
   heartEffect: {fileID: 4315454884705665302, guid: 870e4f202ddb69143ac55bb776580025, type: 3}
+  soundManager: {fileID: 11400000, guid: 0672b51c0f1b7524b8b83d9a83b255fd, type: 2}
