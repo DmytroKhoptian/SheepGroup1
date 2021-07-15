@@ -9,10 +9,22 @@ public class SheepController : MonoBehaviour
     [SerializeField] private GameObject heartEffect;
     [SerializeField] private SoundManager soundManager;
 
+
+    [SerializeField] private SheepProperty sheepProperty;
+    [SerializeField] private Vector3 diraction;
+
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        
+        Debug.Log("Создалась овца с именем: " + sheepProperty.SheepName);
+
+        rb = GetComponent<Rigidbody>();    
+    }
+
+
+    private void Update()
+    {
+        transform.Translate(diraction * sheepProperty.SheepSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

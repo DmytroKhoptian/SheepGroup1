@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3601117840722344026}
   - component: {fileID: 3601117840724272799}
   - component: {fileID: 3601117840724272792}
-  - component: {fileID: 3601117840724272793}
   - component: {fileID: 1994708876701293812}
   m_Layer: 0
   m_Name: Sheep
@@ -64,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76192e63ebf2cc14fb4b84f132b5cff8, type: 2}
+  - {fileID: 2100000, guid: b72cd87f954d35448a11b4d6f08b4844, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,20 +114,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3601117840724272793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3601117840724272794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f75f1804d7d8cd4b91ef21b8a1f8f9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  diraction: {x: 0, y: -1, z: 0}
 --- !u!114 &1994708876701293812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +129,5 @@ MonoBehaviour:
   jumpForce: 500
   heartEffect: {fileID: 4315454884705665302, guid: 870e4f202ddb69143ac55bb776580025, type: 3}
   soundManager: {fileID: 11400000, guid: 0672b51c0f1b7524b8b83d9a83b255fd, type: 2}
+  sheepProperty: {fileID: 11400000, guid: d6da57bb5361b9f4ca1eefc16e1f976b, type: 2}
+  diraction: {x: 0, y: -1, z: 0}
