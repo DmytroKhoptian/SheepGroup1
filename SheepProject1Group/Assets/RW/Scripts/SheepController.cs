@@ -10,13 +10,13 @@ public class SheepController : MonoBehaviour
     [SerializeField] private SoundManager soundManager;
 
 
-    [SerializeField] private SheepProperty sheepProperty;
+    private SheepProperty sheepProperty;
     [SerializeField] private Vector3 diraction;
 
 
     private void Awake()
     {
-        Debug.Log("Создалась овца с именем: " + sheepProperty.SheepName);
+        //Debug.Log("Создалась овца с именем: " + sheepProperty.SheepName);
 
         rb = GetComponent<Rigidbody>();    
     }
@@ -43,5 +43,15 @@ public class SheepController : MonoBehaviour
            GameObject effect = Instantiate(heartEffect, transform.position, heartEffect.transform.rotation);
            Destroy(effect, 1f);
         }
+    }
+
+
+
+    public void SetPropertyToSheep(SheepProperty sheepProperty)
+    {
+        this.sheepProperty = sheepProperty;
+
+        transform.localScale = new Vector3(sheepProperty.SheepSize, sheepProperty.SheepSize, sheepProperty.SheepSize);
+
     }
 }

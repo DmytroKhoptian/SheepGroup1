@@ -7,6 +7,7 @@ public class SheepProperty : ScriptableObject
 {
    [SerializeField] private string sheepName;
    [SerializeField] private float sheepSpeed;
+    [SerializeField] private float sheepSize;
 
     public string SheepName
     {
@@ -55,7 +56,7 @@ public class SheepProperty : ScriptableObject
         }
     }
 
-    
+    public float SheepSize { get { return sheepSize; } }
 
     //public string SheepName { get; }
     //public float SheepSpeed => sheepSpeed; // эквивалент - public float SheepSpeed { get { return sheepSpeed; } }

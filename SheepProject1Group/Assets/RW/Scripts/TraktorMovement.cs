@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum TractorState { Move, Stop };
 
@@ -15,13 +16,16 @@ public class TraktorMovement : MonoBehaviour
     private Transform spawnPoint;
     [SerializeField] private Transform senoContainer;
 
-    private float direction;
+    public float direction;
     private TractorState tractorState = TractorState.Stop;
     [SerializeField] private SoundManager soundManager;
+    public UnityEvent shootEvent;
 
     private void Awake()
     {
         spawnPoint = transform.GetChild(1);
+
+       
     }
 
 
@@ -53,7 +57,9 @@ public class TraktorMovement : MonoBehaviour
             nextFire = Time.time + fireRate;
             GameObject seno = Instantiate(this.seno, spawnPoint.position, this.seno.transform.rotation);
             seno.transform.SetParent(senoContainer);
-            Destroy(seno, 10f);     
+            Destroy(seno, 10f);
+
+            shootEvent.Invoke();
         }
     }
 
