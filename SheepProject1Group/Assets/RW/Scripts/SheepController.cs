@@ -12,8 +12,10 @@ public class SheepController : MonoBehaviour
 
     private SheepProperty sheepProperty;
     [SerializeField] private Vector3 diraction;
+    [SerializeField] private ScoreManager scoreManager;
 
-
+    [SerializeField] private GameEvent savedSheepEvent;
+ 
     private void Awake()
     {
         //Debug.Log("Создалась овца с именем: " + sheepProperty.SheepName);
@@ -33,18 +35,24 @@ public class SheepController : MonoBehaviour
 
         if(senoMovement != null)                                       //(other.gameObject.tag == "Seno")
         {
-            soundManager.PlaySheepHitClip();
-            rb.isKinematic = false;
-            GetComponent<BoxCollider>().enabled = false;
-            rb.AddForce(Vector3.up * jumpForce);
-            Destroy(gameObject, 0.5f);
+            DestroySheep();
             Destroy(other.gameObject);
-
-           GameObject effect = Instantiate(heartEffect, transform.position, heartEffect.transform.rotation);
-           Destroy(effect, 1f);
         }
     }
 
+    void DestroySheep()
+    {
+        soundManager.PlaySheepHitClip();
+        rb.isKinematic = false;
+        GetComponent<BoxCollider>().enabled = false;
+        rb.AddForce(Vector3.up * jumpForce);
+        Destroy(gameObject, 0.5f);
+        GameObject effect = Instantiate(heartEffect, transform.position, heartEffect.transform.rotation);
+        Destroy(effect, 1f);
+
+        scoreManager.SaveSheep();
+        savedSheepEvent.Raise();
+    }
 
 
     public void SetPropertyToSheep(SheepProperty sheepProperty)

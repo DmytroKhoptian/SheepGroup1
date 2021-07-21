@@ -129,5 +129,6 @@ MonoBehaviour:
   jumpForce: 500
   heartEffect: {fileID: 4315454884705665302, guid: 870e4f202ddb69143ac55bb776580025, type: 3}
   soundManager: {fileID: 11400000, guid: 0672b51c0f1b7524b8b83d9a83b255fd, type: 2}
-  sheepProperty: {fileID: 11400000, guid: d6da57bb5361b9f4ca1eefc16e1f976b, type: 2}
   diraction: {x: 0, y: -1, z: 0}
+  scoreManager: {fileID: 11400000, guid: 25ad8cf37f121d34896bec23cd68c98f, type: 2}
+  savedSheepEvent: {fileID: 11400000, guid: 553c9e85afc63bc489cc4667a9c445fc, type: 2}

@@ -35,6 +35,7 @@ public class SheepSpawner : MonoBehaviour
 
     IEnumerator SpawnSheep()
     {
+
         yield return new WaitForSeconds(spawnRate);
         while (true)
         {
