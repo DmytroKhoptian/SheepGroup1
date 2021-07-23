@@ -2133,6 +2133,9 @@ MonoBehaviour:
   spawnPointPosition: {x: 0, y: 0, z: 60}
   boundary: {x: -22, y: 22}
   spawnRate: 1
+  waveRate: 5
+  sheepCount: 3
+  waveCount: 3
   sheepProperties:
   - {fileID: 11400000, guid: a02659be2f979774fad5fdf98f1d76ee, type: 2}
   - {fileID: 11400000, guid: ef774debf5eaa064dab81d7160d982f5, type: 2}
