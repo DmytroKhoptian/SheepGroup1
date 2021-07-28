@@ -21,11 +21,18 @@ public class TraktorMovement : MonoBehaviour
     [SerializeField] private SoundManager soundManager;
     public UnityEvent shootEvent;
 
+    [SerializeField] private Animator animator;
+
+
     private void Awake()
     {
         spawnPoint = transform.GetChild(1);
 
-       
+        if(animator == null)
+        {
+            animator = transform.GetChild(0).GetComponent<Animator>();
+        }
+      
     }
 
 
@@ -48,6 +55,7 @@ public class TraktorMovement : MonoBehaviour
     public void StopMove()
     {
         tractorState = TractorState.Stop;
+        animator.SetBool("IsMove", false);
     }
     public void Fire()
     {
@@ -60,6 +68,8 @@ public class TraktorMovement : MonoBehaviour
             Destroy(seno, 10f);
 
             shootEvent.Invoke();
+
+            animator.SetTrigger("Fire");
         }
     }
 
@@ -70,6 +80,10 @@ public class TraktorMovement : MonoBehaviour
             if (((transform.position.x >= -22f) && (direction == -1f)) || ((transform.position.x <= 22f) && (direction == 1f)))
             {
                 transform.Translate(Vector3.right * speed * direction * Time.deltaTime);
+                animator.SetInteger("Direction", (int)direction);
+                animator.SetBool("IsMove", true);
+
+
             }
         }
     }
