@@ -9,7 +9,7 @@ public class TraktorMovement : MonoBehaviour
 {
     
     [SerializeField] private float speed;
-    [SerializeField] private GameObject seno;
+    [SerializeField] private GameObject senoPrefab;
     [SerializeField] private float fireRate;
     private float nextFire;
 
@@ -23,16 +23,34 @@ public class TraktorMovement : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    //pool
+    [SerializeField] private int senoPoolSize;
+    private List<GameObject> senos;
+    private int currentSenoIndex;
+
+
+
 
     private void Awake()
     {
+        senos = new List<GameObject>(senoPoolSize);
+
         spawnPoint = transform.GetChild(1);
 
         if(animator == null)
         {
             animator = transform.GetChild(0).GetComponent<Animator>();
+        } 
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < senoPoolSize; i++)
+        {
+            senos.Add(Instantiate(senoPrefab));
+            senos[i].transform.SetParent(senoContainer);
+            senos[i].SetActive(false);
         }
-      
     }
 
 
@@ -63,12 +81,20 @@ public class TraktorMovement : MonoBehaviour
         {
             soundManager.PlayShootClip();
             nextFire = Time.time + fireRate;
-            GameObject seno = Instantiate(this.seno, spawnPoint.position, this.seno.transform.rotation);
-            seno.transform.SetParent(senoContainer);
-            Destroy(seno, 10f);
+            //GameObject seno = Instantiate(this.senoPrefab, spawnPoint.position, this.senoPrefab.transform.rotation);
+            //Destroy(seno, 10f);
+
+            senos[currentSenoIndex].transform.position = spawnPoint.position;
+            senos[currentSenoIndex].SetActive(true);
+
+            currentSenoIndex++;
+            if(currentSenoIndex >= senoPoolSize)
+            {
+                currentSenoIndex = 0;
+            }
+
 
             shootEvent.Invoke();
-
             animator.SetTrigger("Fire");
         }
     }
@@ -82,8 +108,6 @@ public class TraktorMovement : MonoBehaviour
                 transform.Translate(Vector3.right * speed * direction * Time.deltaTime);
                 animator.SetInteger("Direction", (int)direction);
                 animator.SetBool("IsMove", true);
-
-
             }
         }
     }

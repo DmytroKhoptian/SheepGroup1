@@ -1,3 +1,5 @@
+using System.Collections;
+ 
 using UnityEngine;
 
 public class SheepDestroyer : MonoBehaviour
@@ -14,11 +16,19 @@ public class SheepDestroyer : MonoBehaviour
         {
             soundManager.PlayDropClip();
             other.GetComponent<Rigidbody>().isKinematic = false;
-            Destroy(other.gameObject, 3f);
+            //Destroy(other.gameObject, 3f);
+            StartCoroutine(DeactivateSheep(sheepController.gameObject));
 
             scoreManager.DropSheep();
 
             droppedSheepEvent.Raise();
         }
+    }
+
+
+    IEnumerator DeactivateSheep(GameObject sheep)
+    {
+        yield return new WaitForSeconds(3f);
+        sheep.gameObject.SetActive(false);
     }
 }

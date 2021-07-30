@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SheepSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject sheepPrefab;
+    //[SerializeField] private GameObject sheepPrefab;
     [SerializeField] private Vector3 spawnPointPosition;
     [SerializeField] private Vector2 boundary;
 
@@ -25,8 +25,17 @@ public class SheepSpawner : MonoBehaviour
     void CreateSheep()
     {
         float xRandom = Random.Range(boundary.x, boundary.y);
-        spawnPointPosition = new Vector3(xRandom, spawnPointPosition.y, spawnPointPosition.z); 
-        GameObject sheep = Instantiate(sheepPrefab, spawnPointPosition, sheepPrefab.transform.rotation);
+        spawnPointPosition = new Vector3(xRandom, spawnPointPosition.y, spawnPointPosition.z);
+
+        GameObject sheep = ObjectPooler.objectPoller.GetPooledObject();
+        if(sheep == null) { return; }
+
+        sheep.transform.position = spawnPointPosition;
+        sheep.SetActive(true);
+
+       // GameObject sheep = Instantiate(sheepPrefab, spawnPointPosition, sheepPrefab.transform.rotation);
+
+
         int randomSheepPropertyIndex = Random.Range(0, sheepProperties.Count);
         sheep.GetComponent<SheepController>().SetPropertyToSheep(sheepProperties[randomSheepPropertyIndex]);
     }

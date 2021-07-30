@@ -33,10 +33,10 @@ public class SheepController : MonoBehaviour
     {
         SenoMovement senoMovement = other.GetComponent<SenoMovement>();
 
-        if(senoMovement != null)                                       //(other.gameObject.tag == "Seno")
+        if(senoMovement != null) //(other.gameObject.tag == "Seno")
         {
             DestroySheep();
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false); //Destroy(other.gameObject);
         }
     }
 
@@ -46,7 +46,8 @@ public class SheepController : MonoBehaviour
         rb.isKinematic = false;
         GetComponent<BoxCollider>().enabled = false;
         rb.AddForce(Vector3.up * jumpForce);
-        Destroy(gameObject, 0.5f);
+        //Destroy(gameObject, 0.5f);
+        gameObject.SetActive(false);
         GameObject effect = Instantiate(heartEffect, transform.position, heartEffect.transform.rotation);
         Destroy(effect, 1f);
 
