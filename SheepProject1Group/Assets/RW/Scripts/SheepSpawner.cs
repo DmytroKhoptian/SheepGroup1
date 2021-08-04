@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SheepSpawner : MonoBehaviour
 {
+    [SerializeField] private string objectTag;
     //[SerializeField] private GameObject sheepPrefab;
     [SerializeField] private Vector3 spawnPointPosition;
     [SerializeField] private Vector2 boundary;
@@ -27,7 +28,7 @@ public class SheepSpawner : MonoBehaviour
         float xRandom = Random.Range(boundary.x, boundary.y);
         spawnPointPosition = new Vector3(xRandom, spawnPointPosition.y, spawnPointPosition.z);
 
-        GameObject sheep = ObjectPooler.objectPoller.GetPooledObject();
+        GameObject sheep = ObjectPooler.objectPoller.GetPooledObject(objectTag);
         if(sheep == null) { return; }
 
         sheep.transform.position = spawnPointPosition;

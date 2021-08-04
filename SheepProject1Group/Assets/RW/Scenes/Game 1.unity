@@ -1109,9 +1109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0149172fd1a7e3478711da8b1d748a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 3601117840724272794, guid: da49eeb576b397f4c8489f462969d365, type: 3}
-  pooledAmount: 20
-  willGrow: 1
+  itemsToPool:
+  - pooledObject: {fileID: 3601117840724272794, guid: da49eeb576b397f4c8489f462969d365, type: 3}
+    pooledAmount: 20
+    willGrow: 1
   pooledObjects: []
 --- !u!4 &754199468
 Transform:
@@ -2302,6 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13c8c31a566cff4184aa2b613e7736b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectTag: Player
   spawnPointPosition: {x: 0, y: 0, z: 60}
   boundary: {x: -22, y: 22}
   spawnRate: 1
